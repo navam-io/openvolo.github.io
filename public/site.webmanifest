@@ -1,0 +1,21 @@
+{
+  "name": "OpenVolo",
+  "short_name": "OpenVolo",
+  "description": "Agentic AI-Native Social CRM — manage contacts, content, and engagement across X/Twitter, LinkedIn, and Gmail.",
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#0891b2",
+  "background_color": "#1a1625",
+  "icons": [
+    {
+      "src": "/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}

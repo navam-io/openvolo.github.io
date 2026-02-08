@@ -1,0 +1,88 @@
+# OpenVolo
+
+> Agentic AI-Native Social CRM — manage contacts, content, and engagement across X/Twitter, LinkedIn, and Gmail, powered by Claude AI agents. All data stays on your machine.
+
+## Key Features
+
+- **Zero Install**: One command (`npx openvolo`) sets up everything — database, migrations, and dashboard
+- **Local-First Privacy**: All data stored in SQLite at ~/.openvolo/ with AES-256 encrypted credentials
+- **Unified Contacts**: Cross-platform contact management with automatic deduplication and enrichment scoring
+- **AI Agents**: Claude AI agents automate engagement, enrichment, and outreach workflows
+- **Multi-Platform Publishing**: Compose and publish across X, LinkedIn, and Gmail from one dashboard
+- **Smart Data**: Engagement metrics, funnel tracking, and AI-powered contact enrichment
+
+## Supported Platforms
+
+### X/Twitter
+- OAuth authentication and full data sync
+- Compose and publish posts directly
+- Engagement tracking and metrics
+
+### LinkedIn
+- OAuth authentication and full data sync
+- Compose and publish posts directly
+- Contact enrichment from profiles
+
+### Gmail
+- OAuth authentication and full data sync
+- Email composition and messaging
+- Contact import and management
+
+### Roadmap
+- Substack integration (planned)
+
+## Tech Stack
+
+- Astro 5 + React (frontend)
+- SQLite + Drizzle ORM (local database)
+- Vercel AI SDK + Claude Agent SDK (AI features)
+- OAuth 2.0 (platform authentication)
+
+## How It Works
+
+1. **Install**: Run `npx openvolo` — that's it. No config files, no Docker, no dependencies to manage. Downloads the package, creates your local database, runs schema migrations, and starts the dashboard at localhost:3000.
+2. **Connect**: Link your X, LinkedIn, and Gmail accounts with OAuth. Credentials are encrypted locally with AES-256. Scoped permissions — only what's needed.
+3. **Automate**: Let AI agents manage engagement, enrich contacts, and grow your network while you focus on what matters.
+
+## Security & Privacy
+
+- **Local-first database**: SQLite database stored at ~/.openvolo/ on your machine. No cloud, no servers, no third parties.
+- **AES-256 encryption**: All OAuth tokens and API keys are encrypted with AES-256 before being stored in config.
+- **OAuth 2.0 everywhere**: Industry-standard OAuth 2.0 for X, LinkedIn, and Gmail. Scoped permissions — only what's needed.
+- **Open source**: Apache 2.0 licensed. Every line of code is auditable. No telemetry, no tracking, no analytics.
+
+## Frequently Asked Questions
+
+### Is OpenVolo free?
+Yes. OpenVolo is open source under the Apache 2.0 license. You can use it, modify it, and distribute it freely.
+
+### Where is my data stored?
+All data is stored locally in a SQLite database at ~/.openvolo/ on your machine. Nothing is sent to any cloud service. Your credentials are encrypted with AES-256.
+
+### Do I need API keys?
+You need an Anthropic API key for AI features (or use Claude Code Max/Pro). Platform API keys for X, LinkedIn, and Gmail are optional — only needed for the platforms you want to connect.
+
+### What platforms are supported?
+X/Twitter, LinkedIn, and Gmail are fully supported with OAuth authentication and data sync. Substack integration is on the roadmap.
+
+### Can I use it with Claude Code?
+Yes. OpenVolo works with Claude Code Max, Claude Code Pro, or a standard Anthropic API key. It uses both the Vercel AI SDK for chat and the Claude Agent SDK for background automation.
+
+### Is it really one command?
+Yes. Running `npx openvolo` downloads the package, creates your local database, runs schema migrations, and starts the dashboard at localhost:3000. No Docker, no config files, no separate database server.
+
+## Architecture
+
+OpenVolo follows a local-first architecture where all data resides on the user's machine:
+
+- **Frontend**: Astro 5 with React components, served from localhost:3000
+- **Database**: SQLite via Drizzle ORM at ~/.openvolo/data.db
+- **AI Layer**: Vercel AI SDK for interactive chat, Claude Agent SDK for background automation
+- **Auth**: OAuth 2.0 tokens encrypted with AES-256, stored in local config
+- **Sync**: Background workers sync data from connected platforms
+
+## Links
+
+- Website: https://openvolo.com
+- GitHub: https://github.com/navam-io/openvolo
+- License: Apache 2.0 (https://www.apache.org/licenses/LICENSE-2.0)

@@ -25,6 +25,11 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- Theme color -->
+    <meta name="theme-color" content="#0891b2" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#1a1625" media="(prefers-color-scheme: dark)" />
 
     <!-- SEO -->
     <title>{title}</title>
@@ -73,8 +78,18 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       "@type": "SoftwareApplication",
       "name": "OpenVolo",
       "description": description,
+      "url": "https://openvolo.com",
       "applicationCategory": "BusinessApplication",
       "operatingSystem": "macOS, Linux, Windows",
+      "license": "https://www.apache.org/licenses/LICENSE-2.0",
+      "featureList": [
+        "Zero-install setup via npx",
+        "Local-first SQLite database",
+        "AES-256 encrypted credentials",
+        "AI-powered contact enrichment",
+        "Multi-platform publishing (X, LinkedIn, Gmail)",
+        "Claude AI agent automation"
+      ],
       "offers": {
         "@type": "Offer",
         "price": "0",
@@ -85,6 +100,62 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         "name": "OpenVolo",
         "url": "https://openvolo.com"
       }
+    })} />
+
+    <!-- FAQPage structured data -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is OpenVolo free?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. OpenVolo is open source under the Apache 2.0 license. You can use it, modify it, and distribute it freely."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Where is my data stored?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "All data is stored locally in a SQLite database at ~/.openvolo/ on your machine. Nothing is sent to any cloud service. Your credentials are encrypted with AES-256."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need API keys?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You need an Anthropic API key for AI features (or use Claude Code Max/Pro). Platform API keys for X, LinkedIn, and Gmail are optional — only needed for the platforms you want to connect."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What platforms are supported?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "X/Twitter, LinkedIn, and Gmail are fully supported with OAuth authentication and data sync. Substack integration is on the roadmap."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I use it with Claude Code?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. OpenVolo works with Claude Code Max, Claude Code Pro, or a standard Anthropic API key. It uses both the Vercel AI SDK for chat and the Claude Agent SDK for background automation."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is it really one command?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Running npx openvolo downloads the package, creates your local database, runs schema migrations, and starts the dashboard at localhost:3000. No Docker, no config files, no separate database server."
+          }
+        }
+      ]
     })} />
 
     <style is:global>

@@ -1,0 +1,37 @@
+# OpenVolo
+
+> Agentic AI-Native Social CRM — manage contacts, content, and engagement across X/Twitter, LinkedIn, and Gmail, powered by Claude AI agents. All data stays on your machine.
+
+## Key Features
+
+- **Zero Install**: One command (`npx openvolo`) sets up everything — database, migrations, and dashboard
+- **Local-First Privacy**: All data stored in SQLite at ~/.openvolo/ with AES-256 encrypted credentials
+- **Unified Contacts**: Cross-platform contact management with automatic deduplication and enrichment scoring
+- **AI Agents**: Claude AI agents automate engagement, enrichment, and outreach workflows
+- **Multi-Platform Publishing**: Compose and publish across X, LinkedIn, and Gmail from one dashboard
+- **Smart Data**: Engagement metrics, funnel tracking, and AI-powered contact enrichment
+
+## Supported Platforms
+
+- X/Twitter (OAuth, data sync, publishing)
+- LinkedIn (OAuth, data sync, publishing)
+- Gmail (OAuth, data sync, messaging)
+
+## Tech Stack
+
+- Astro 5 + React (frontend)
+- SQLite + Drizzle ORM (local database)
+- Vercel AI SDK + Claude Agent SDK (AI features)
+- OAuth 2.0 (platform authentication)
+
+## How It Works
+
+1. **Install**: Run `npx openvolo` — no config files, no Docker, no dependencies
+2. **Connect**: Link X, LinkedIn, and Gmail accounts with OAuth (credentials encrypted locally)
+3. **Automate**: AI agents manage engagement, enrich contacts, and grow your network
+
+## Links
+
+- Website: https://openvolo.com
+- GitHub: https://github.com/navam-io/openvolo
+- License: Apache 2.0

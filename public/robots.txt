@@ -1,4 +1,26 @@
 User-agent: *
 Allow: /
 
+# AI crawlers — OpenVolo is open source and welcomes AI indexing
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: Anthropic-AI
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
 Sitemap: https://openvolo.com/sitemap-index.xml
