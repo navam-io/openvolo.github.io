@@ -1,0 +1,176 @@
+---
+const platforms = [
+  {
+    name: "X / Twitter",
+    description: "OAuth sync, tweet import, compose & publish, engagement actions",
+    color: "var(--foreground)",
+    position: "top",
+  },
+  {
+    name: "LinkedIn",
+    description: "OAuth with OpenID Connect, profile sync, CSV connection import",
+    color: "var(--brand-periwinkle)",
+    position: "right",
+  },
+  {
+    name: "Gmail",
+    description: "Google People API contact sync, email metadata enrichment",
+    color: "var(--brand-coral)",
+    position: "bottom",
+  },
+  {
+    name: "Substack",
+    description: "Newsletter integration — coming soon",
+    color: "var(--brand-pink)",
+    position: "left",
+    comingSoon: true,
+  },
+];
+---
+
+<section id="platforms" class="py-24 sm:py-32 relative overflow-hidden">
+  <!-- Subtle background gradient -->
+  <div class="absolute inset-0 -z-10" aria-hidden="true">
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full opacity-10 blur-[120px]"
+         style="background: var(--brand-lavender);"></div>
+  </div>
+
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <!-- Section header -->
+    <div class="reveal text-center max-w-2xl mx-auto mb-16">
+      <h2 class="font-display font-bold text-3xl sm:text-4xl tracking-tight">
+        One CRM for <span class="text-gradient-brand">all your platforms</span>
+      </h2>
+      <p class="mt-4 text-muted-foreground text-lg">
+        Connect your social accounts and email. OpenVolo unifies everything into a single, intelligent workspace.
+      </p>
+    </div>
+
+    <!-- Platform hub - Desktop: radial layout, Mobile: vertical stack -->
+    <div class="reveal relative max-w-3xl mx-auto">
+      <!-- Desktop layout -->
+      <div class="hidden lg:block relative" style="height: 480px;">
+        <!-- Center hub -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
+          <div class="glass-card flex items-center gap-3 px-6 py-4 rounded-2xl">
+            <img src="/assets/openvolo-logo-transparent.png" alt="" width="36" height="36" class="rounded-lg" />
+            <span class="font-display font-bold text-lg text-gradient-brand">OpenVolo</span>
+          </div>
+        </div>
+
+        <!-- Connection lines (SVG) -->
+        <svg class="absolute inset-0 w-full h-full" aria-hidden="true">
+          <defs>
+            <linearGradient id="line-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" style="stop-color: var(--brand-cyan); stop-opacity: 0.3" />
+              <stop offset="50%" style="stop-color: var(--brand-lavender); stop-opacity: 0.5" />
+              <stop offset="100%" style="stop-color: var(--brand-cyan); stop-opacity: 0.3" />
+            </linearGradient>
+          </defs>
+          <!-- Top line -->
+          <line x1="50%" y1="50%" x2="50%" y2="12%" stroke="url(#line-grad)" stroke-width="2" stroke-dasharray="6 4" />
+          <!-- Right line -->
+          <line x1="50%" y1="50%" x2="88%" y2="50%" stroke="url(#line-grad)" stroke-width="2" stroke-dasharray="6 4" />
+          <!-- Bottom line -->
+          <line x1="50%" y1="50%" x2="50%" y2="88%" stroke="url(#line-grad)" stroke-width="2" stroke-dasharray="6 4" />
+          <!-- Left line -->
+          <line x1="50%" y1="50%" x2="12%" y2="50%" stroke="url(#line-grad)" stroke-width="2" stroke-dasharray="6 4" />
+        </svg>
+
+        <!-- Platform nodes -->
+        <!-- X / Twitter - Top -->
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 text-center">
+          <div class="glass-card px-5 py-4 rounded-xl">
+            <div class="flex items-center gap-2 mb-1.5">
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+              </svg>
+              <span class="font-display font-semibold text-sm">X / Twitter</span>
+            </div>
+            <p class="text-xs text-muted-foreground">OAuth sync, compose & publish</p>
+          </div>
+        </div>
+
+        <!-- LinkedIn - Right -->
+        <div class="absolute top-1/2 right-0 -translate-y-1/2 text-center">
+          <div class="glass-card px-5 py-4 rounded-xl">
+            <div class="flex items-center gap-2 mb-1.5">
+              <svg class="h-5 w-5 text-brand-periwinkle" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+              </svg>
+              <span class="font-display font-semibold text-sm">LinkedIn</span>
+            </div>
+            <p class="text-xs text-muted-foreground">Profile sync, CSV import</p>
+          </div>
+        </div>
+
+        <!-- Gmail - Bottom -->
+        <div class="absolute bottom-0 left-1/2 -translate-x-1/2 text-center">
+          <div class="glass-card px-5 py-4 rounded-xl">
+            <div class="flex items-center gap-2 mb-1.5">
+              <svg class="h-5 w-5 text-brand-coral" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"/>
+              </svg>
+              <span class="font-display font-semibold text-sm">Gmail</span>
+            </div>
+            <p class="text-xs text-muted-foreground">Contact sync, email metadata</p>
+          </div>
+        </div>
+
+        <!-- Substack - Left -->
+        <div class="absolute top-1/2 left-0 -translate-y-1/2 text-center">
+          <div class="glass-card px-5 py-4 rounded-xl opacity-60">
+            <div class="flex items-center gap-2 mb-1.5">
+              <svg class="h-5 w-5 text-brand-pink" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/>
+              </svg>
+              <span class="font-display font-semibold text-sm">Substack</span>
+            </div>
+            <p class="text-xs text-muted-foreground">Coming soon</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile layout: vertical cards -->
+      <div class="lg:hidden space-y-4">
+        <!-- Center hub card -->
+        <div class="glass-card flex items-center justify-center gap-3 px-6 py-4 rounded-2xl">
+          <img src="/assets/openvolo-logo-transparent.png" alt="" width="32" height="32" class="rounded-lg" />
+          <span class="font-display font-bold text-lg text-gradient-brand">OpenVolo</span>
+        </div>
+
+        <!-- Connector -->
+        <div class="flex justify-center" aria-hidden="true">
+          <div class="w-px h-6 bg-gradient-to-b from-brand-cyan/30 to-brand-lavender/30"></div>
+        </div>
+
+        <!-- Platform cards -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {platforms.map((p) => (
+            <div class:list={["glass-card px-5 py-4 rounded-xl", { "opacity-60": p.comingSoon }]}>
+              <div class="flex items-center gap-2 mb-1.5">
+                <div class="h-5 w-5 rounded" style={`color: ${p.color}`}>
+                  {p.name === "X / Twitter" && (
+                    <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                  )}
+                  {p.name === "LinkedIn" && (
+                    <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                  )}
+                  {p.name === "Gmail" && (
+                    <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"/></svg>
+                  )}
+                  {p.name === "Substack" && (
+                    <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/></svg>
+                  )}
+                </div>
+                <span class="font-display font-semibold text-sm">{p.name}</span>
+                {p.comingSoon && <span class="text-[10px] px-1.5 py-0.5 rounded-full bg-muted text-muted-foreground">Soon</span>}
+              </div>
+              <p class="text-xs text-muted-foreground">{p.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

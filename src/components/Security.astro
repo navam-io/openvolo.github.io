@@ -1,0 +1,104 @@
+---
+const points = [
+  {
+    icon: "database",
+    title: "Local-first database",
+    description: "SQLite database stored at ~/.openvolo/ on your machine. No cloud, no servers, no third parties.",
+  },
+  {
+    icon: "lock",
+    title: "AES-256 encryption",
+    description: "All OAuth tokens and API keys are encrypted with AES-256 before being stored in config.",
+  },
+  {
+    icon: "key",
+    title: "OAuth 2.0 everywhere",
+    description: "Industry-standard OAuth 2.0 for X, LinkedIn, and Gmail. Scoped permissions — only what's needed.",
+  },
+  {
+    icon: "code",
+    title: "Open source",
+    description: "Apache 2.0 licensed. Every line of code is auditable. No telemetry, no tracking, no analytics.",
+  },
+];
+---
+
+<section id="security" class="py-24 sm:py-32 bg-muted/30">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <!-- Content -->
+      <div>
+        <div class="reveal">
+          <h2 class="font-display font-bold text-3xl sm:text-4xl tracking-tight">
+            Your data <span class="text-gradient-brand">stays yours</span>
+          </h2>
+          <p class="mt-4 text-muted-foreground text-lg max-w-lg">
+            OpenVolo is designed from the ground up for privacy. Everything runs locally — your contacts, credentials, and content never touch a cloud server.
+          </p>
+        </div>
+
+        <div class="mt-8 space-y-5">
+          {points.map((point, i) => (
+            <div class="reveal flex gap-4" style={`animation-delay: ${i * 80}ms`}>
+              <div class="shrink-0 flex h-9 w-9 items-center justify-center rounded-lg bg-primary/10 text-primary mt-0.5">
+                {point.icon === "database" && (
+                  <svg class="h-4.5 w-4.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                    <path d="M3 5V19A9 3 0 0 0 21 19V5"></path>
+                    <path d="M3 12A9 3 0 0 0 21 12"></path>
+                  </svg>
+                )}
+                {point.icon === "lock" && (
+                  <svg class="h-4.5 w-4.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect width="18" height="11" x="3" y="11" rx="2" ry="2"></rect>
+                    <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                  </svg>
+                )}
+                {point.icon === "key" && (
+                  <svg class="h-4.5 w-4.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="m15.5 7.5 2.3 2.3a1 1 0 0 0 1.4 0l2.1-2.1a1 1 0 0 0 0-1.4L19 4"></path>
+                    <path d="m21 2-9.6 9.6"></path>
+                    <circle cx="7.5" cy="15.5" r="5.5"></circle>
+                  </svg>
+                )}
+                {point.icon === "code" && (
+                  <svg class="h-4.5 w-4.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="16 18 22 12 16 6"></polyline>
+                    <polyline points="8 6 2 12 8 18"></polyline>
+                  </svg>
+                )}
+              </div>
+              <div>
+                <h3 class="font-display font-semibold text-sm">{point.title}</h3>
+                <p class="text-sm text-muted-foreground leading-relaxed mt-0.5">{point.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Visual: Security shield graphic -->
+      <div class="reveal flex items-center justify-center" aria-hidden="true">
+        <div class="relative">
+          <!-- Outer glow ring -->
+          <div class="absolute inset-0 rounded-full opacity-20 blur-[60px]"
+               style="background: var(--brand-cyan);"></div>
+          <!-- Shield container -->
+          <div class="relative glass-card p-12 rounded-3xl">
+            <div class="flex flex-col items-center gap-4">
+              <!-- Large shield icon -->
+              <svg class="h-24 w-24 text-primary opacity-80" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path>
+                <path d="m9 12 2 2 4-4"></path>
+              </svg>
+              <div class="text-center">
+                <p class="font-display font-bold text-lg text-gradient-brand">100% Local</p>
+                <p class="text-xs text-muted-foreground mt-1">Zero cloud dependency</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

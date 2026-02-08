@@ -1,0 +1,224 @@
+@import "tailwindcss";
+
+/* ── Brand Palette (OKLCH) ──────────────────────────────── */
+
+:root {
+  --brand-cyan: oklch(0.55 0.18 195);
+  --brand-lavender: oklch(0.65 0.12 280);
+  --brand-pink: oklch(0.72 0.12 340);
+  --brand-coral: oklch(0.72 0.13 45);
+  --brand-periwinkle: oklch(0.60 0.14 270);
+
+  /* Semantic tokens – light mode */
+  --background: oklch(0.995 0.005 270);
+  --foreground: oklch(0.17 0.02 270);
+  --card: oklch(1 0.003 270);
+  --card-foreground: oklch(0.17 0.02 270);
+  --border: oklch(0.91 0.01 270);
+  --muted: oklch(0.96 0.01 270);
+  --muted-foreground: oklch(0.52 0.02 270);
+  --primary: oklch(0.55 0.18 195);
+  --primary-foreground: oklch(0.99 0.005 195);
+  --accent: oklch(0.96 0.03 340);
+  --accent-foreground: oklch(0.17 0.02 270);
+
+  --radius: 0.625rem;
+}
+
+.dark {
+  --background: oklch(0.12 0.02 270);
+  --foreground: oklch(0.96 0.01 270);
+  --card: oklch(0.16 0.02 270);
+  --card-foreground: oklch(0.96 0.01 270);
+  --border: oklch(0.25 0.02 270);
+  --muted: oklch(0.20 0.02 270);
+  --muted-foreground: oklch(0.65 0.02 270);
+  --primary: oklch(0.65 0.18 195);
+  --primary-foreground: oklch(0.12 0.02 270);
+  --accent: oklch(0.20 0.03 340);
+  --accent-foreground: oklch(0.96 0.01 270);
+
+  --brand-cyan: oklch(0.65 0.18 195);
+}
+
+/* ── Tailwind v4 Theme ──────────────────────────────────── */
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-border: var(--border);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+
+  --color-brand-cyan: var(--brand-cyan);
+  --color-brand-lavender: var(--brand-lavender);
+  --color-brand-pink: var(--brand-pink);
+  --color-brand-coral: var(--brand-coral);
+  --color-brand-periwinkle: var(--brand-periwinkle);
+
+  --font-display: "Plus Jakarta Sans", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --font-sans: var(--font-body);
+
+  --radius-lg: var(--radius);
+
+  --animate-shimmer: shimmer 2s linear infinite;
+  --animate-fade-slide-in: fadeSlideIn 0.5s ease-out forwards;
+  --animate-float-1: float1 20s ease-in-out infinite;
+  --animate-float-2: float2 25s ease-in-out infinite;
+  --animate-float-3: float3 22s ease-in-out infinite;
+}
+
+/* ── Keyframes ──────────────────────────────────────────── */
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(30px, -30px) scale(1.05); }
+  66% { transform: translate(-20px, 20px) scale(0.95); }
+}
+
+@keyframes float2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(-40px, 20px) scale(1.05); }
+  66% { transform: translate(25px, -35px) scale(0.95); }
+}
+
+@keyframes float3 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(20px, 30px) scale(1.03); }
+  66% { transform: translate(-30px, -20px) scale(0.97); }
+}
+
+/* ── Base styles ────────────────────────────────────────── */
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--background);
+  color: var(--foreground);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Utility classes ────────────────────────────────────── */
+
+.glass {
+  backdrop-filter: blur(20px) saturate(1.2);
+  -webkit-backdrop-filter: blur(20px) saturate(1.2);
+  background: color-mix(in oklch, var(--card) 60%, transparent);
+  border: 1px solid color-mix(in oklch, var(--border) 50%, transparent);
+}
+
+.glass-card {
+  backdrop-filter: blur(16px) saturate(1.15);
+  -webkit-backdrop-filter: blur(16px) saturate(1.15);
+  background: color-mix(in oklch, var(--card) 50%, transparent);
+  border: 1px solid color-mix(in oklch, var(--border) 40%, transparent);
+  border-radius: var(--radius);
+  box-shadow:
+    inset 0 1px 0 0 color-mix(in oklch, white 5%, transparent),
+    0 4px 24px -4px color-mix(in oklch, var(--foreground) 5%, transparent);
+}
+
+.dark .glass-card {
+  box-shadow:
+    inset 0 1px 0 0 color-mix(in oklch, white 3%, transparent),
+    0 4px 24px -4px color-mix(in oklch, black 30%, transparent);
+}
+
+.gradient-brand {
+  background: linear-gradient(
+    135deg,
+    var(--brand-cyan),
+    var(--brand-lavender),
+    var(--brand-pink),
+    var(--brand-coral)
+  );
+}
+
+.text-gradient-brand {
+  background: linear-gradient(
+    135deg,
+    var(--brand-cyan),
+    var(--brand-lavender),
+    var(--brand-pink),
+    var(--brand-coral)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.terminal-glow {
+  box-shadow:
+    0 0 20px color-mix(in oklch, var(--brand-cyan) 20%, transparent),
+    0 0 60px color-mix(in oklch, var(--brand-cyan) 10%, transparent),
+    inset 0 1px 0 0 color-mix(in oklch, var(--brand-cyan) 15%, transparent);
+  border: 1px solid color-mix(in oklch, var(--brand-cyan) 30%, transparent);
+}
+
+.shimmer-border {
+  background-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    color-mix(in oklch, var(--brand-cyan) 40%, transparent) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2s linear infinite;
+}
+
+/* Section scroll reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(12px);
+}
+
+.reveal.revealed {
+  animation: fadeSlideIn 0.5s ease-out forwards;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal { opacity: 1; transform: none; }
+}
+
+/* ── Selection ──────────────────────────────────────────── */
+
+::selection {
+  background: color-mix(in oklch, var(--brand-cyan) 30%, transparent);
+  color: var(--foreground);
+}

@@ -1,0 +1,74 @@
+---
+const steps = [
+  {
+    number: "1",
+    title: "Install",
+    description: "Run npx openvolo — that's it. No config files, no Docker, no dependencies to manage.",
+    icon: "download",
+  },
+  {
+    number: "2",
+    title: "Connect",
+    description: "Link your X, LinkedIn, and Gmail accounts with OAuth. Credentials are encrypted locally with AES-256.",
+    icon: "link",
+  },
+  {
+    number: "3",
+    title: "Automate",
+    description: "Let AI agents manage engagement, enrich contacts, and grow your network while you focus on what matters.",
+    icon: "sparkles",
+  },
+];
+---
+
+<section id="how-it-works" class="py-24 sm:py-32 relative overflow-hidden">
+  <!-- Background accent -->
+  <div class="absolute inset-0 -z-10" aria-hidden="true">
+    <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-cyan/20 to-transparent"></div>
+    <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-pink/20 to-transparent"></div>
+  </div>
+
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <!-- Section header -->
+    <div class="reveal text-center max-w-2xl mx-auto mb-16">
+      <h2 class="font-display font-bold text-3xl sm:text-4xl tracking-tight">
+        Up and running in <span class="text-gradient-brand">minutes</span>
+      </h2>
+      <p class="mt-4 text-muted-foreground text-lg">
+        Three steps. No complicated setup. No cloud account required.
+      </p>
+    </div>
+
+    <!-- Steps -->
+    <div class="reveal relative max-w-4xl mx-auto">
+      <!-- Connecting line (desktop) -->
+      <div class="hidden lg:block absolute top-12 left-[16.67%] right-[16.67%] h-px" aria-hidden="true">
+        <div class="w-full h-full bg-gradient-to-r from-brand-cyan/30 via-brand-lavender/30 to-brand-pink/30"></div>
+      </div>
+
+      <!-- Connecting line (mobile) -->
+      <div class="lg:hidden absolute top-0 bottom-0 left-6 w-px" aria-hidden="true">
+        <div class="w-full h-full bg-gradient-to-b from-brand-cyan/30 via-brand-lavender/30 to-brand-pink/30"></div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
+        {steps.map((step, i) => (
+          <div class="reveal relative flex lg:flex-col items-start lg:items-center lg:text-center gap-5 lg:gap-4"
+               style={`animation-delay: ${i * 120}ms`}>
+            <!-- Step number -->
+            <div class="relative z-10 shrink-0 flex h-12 w-12 items-center justify-center rounded-full gradient-brand text-white font-display font-bold text-lg shadow-lg">
+              {step.number}
+            </div>
+
+            <div>
+              <h3 class="font-display font-semibold text-xl mb-2">{step.title}</h3>
+              <p class="text-sm text-muted-foreground leading-relaxed max-w-xs">
+                {step.description}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

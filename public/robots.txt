@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://openvolo.com/sitemap-index.xml

@@ -1,0 +1,42 @@
+---
+const technologies = [
+  { name: "Next.js 16", category: "Framework" },
+  { name: "React 19", category: "UI" },
+  { name: "TypeScript", category: "Language" },
+  { name: "SQLite", category: "Database" },
+  { name: "Drizzle ORM", category: "ORM" },
+  { name: "Claude SDK", category: "AI" },
+  { name: "Tailwind CSS 4", category: "Styling" },
+  { name: "Vitest", category: "Testing" },
+  { name: "Zod", category: "Validation" },
+];
+---
+
+<section id="tech-stack" class="py-24 sm:py-32">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <!-- Section header -->
+    <div class="reveal text-center max-w-2xl mx-auto mb-12">
+      <h2 class="font-display font-bold text-3xl sm:text-4xl tracking-tight">
+        Built with <span class="text-gradient-brand">modern tools</span>
+      </h2>
+      <p class="mt-4 text-muted-foreground text-lg">
+        Production-grade technologies for reliability, performance, and developer experience.
+      </p>
+    </div>
+
+    <!-- Tech badges -->
+    <div class="reveal flex flex-wrap items-center justify-center gap-3 max-w-3xl mx-auto">
+      {technologies.map((tech, i) => (
+        <div
+          class="glass-card px-4 py-2.5 rounded-full hover:-translate-y-0.5 transition-all duration-200 cursor-default"
+          style={`animation-delay: ${i * 60}ms`}
+        >
+          <div class="flex items-center gap-2">
+            <span class="font-display font-medium text-sm">{tech.name}</span>
+            <span class="text-[10px] text-muted-foreground uppercase tracking-wider">{tech.category}</span>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

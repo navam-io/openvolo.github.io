@@ -1,0 +1,68 @@
+---
+const faqs = [
+  {
+    question: "Is OpenVolo free?",
+    answer: "Yes. OpenVolo is open source under the Apache 2.0 license. You can use it, modify it, and distribute it freely.",
+  },
+  {
+    question: "Where is my data stored?",
+    answer: "All data is stored locally in a SQLite database at ~/.openvolo/ on your machine. Nothing is sent to any cloud service. Your credentials are encrypted with AES-256.",
+  },
+  {
+    question: "Do I need API keys?",
+    answer: "You need an Anthropic API key for AI features (or use Claude Code Max/Pro). Platform API keys for X, LinkedIn, and Gmail are optional — only needed for the platforms you want to connect.",
+  },
+  {
+    question: "What platforms are supported?",
+    answer: "X/Twitter, LinkedIn, and Gmail are fully supported with OAuth authentication and data sync. Substack integration is on the roadmap.",
+  },
+  {
+    question: "Can I use it with Claude Code?",
+    answer: "Yes. OpenVolo works with Claude Code Max, Claude Code Pro, or a standard Anthropic API key. It uses both the Vercel AI SDK for chat and the Claude Agent SDK for background automation.",
+  },
+  {
+    question: "Is it really one command?",
+    answer: "Yes. Running npx openvolo downloads the package, creates your local database, runs schema migrations, and starts the dashboard at localhost:3000. No Docker, no config files, no separate database server.",
+  },
+];
+---
+
+<section id="faq" class="py-24 sm:py-32 bg-muted/30">
+  <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+    <!-- Section header -->
+    <div class="reveal text-center mb-12">
+      <h2 class="font-display font-bold text-3xl sm:text-4xl tracking-tight">
+        Frequently asked <span class="text-gradient-brand">questions</span>
+      </h2>
+    </div>
+
+    <!-- Accordion -->
+    <div class="reveal space-y-3">
+      {faqs.map((faq, i) => (
+        <details
+          class="group glass-card rounded-xl overflow-hidden"
+          style={`animation-delay: ${i * 60}ms`}
+        >
+          <summary class="flex cursor-pointer items-center justify-between px-6 py-4 text-sm font-display font-semibold select-none list-none [&::-webkit-details-marker]:hidden">
+            <span>{faq.question}</span>
+            <svg
+              class="h-4 w-4 shrink-0 text-muted-foreground transition-transform duration-200 group-open:rotate-180"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="m6 9 6 6 6-6"></path>
+            </svg>
+          </summary>
+          <div class="px-6 pb-4">
+            <p class="text-sm text-muted-foreground leading-relaxed">{faq.answer}</p>
+          </div>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>
