@@ -10,7 +10,7 @@ const faqs = [
   },
   {
     question: "Do I need API keys?",
-    answer: "You need an Anthropic API key for AI features (or use Claude Code Max/Pro). Platform API keys for X, LinkedIn, and Gmail are optional — only needed for the platforms you want to connect.",
+    answer: "You need an Anthropic API key for AI features (or use Claude Code Max/Pro). Platform API keys for X, LinkedIn, and Gmail are optional — only needed for the platforms you want to connect. For Smart Search, Brave and Tavily API keys are optional — combined 3,000 free search queries per month.",
   },
   {
     question: "What platforms are supported?",
@@ -18,11 +18,19 @@ const faqs = [
   },
   {
     question: "Can I use it with Claude Code?",
-    answer: "Yes. OpenVolo works with Claude Code Max, Claude Code Pro, or a standard Anthropic API key. It uses both the Vercel AI SDK for chat and the Claude Agent SDK for background automation.",
+    answer: "Yes. OpenVolo works with Claude Code Max, Claude Code Pro, or a standard Anthropic API key. It uses the Vercel AI SDK for the chat assistant (Cmd+K) and the Claude Agent SDK for background workflow automation.",
   },
   {
     question: "Is it really one command?",
     answer: "Yes. Running npx openvolo downloads the package, creates your local database, runs schema migrations, and starts the dashboard at localhost:3000. No Docker, no config files, no separate database server.",
+  },
+  {
+    question: "What can AI agents automate?",
+    answer: "OpenVolo includes six workflow types — sync, enrich, search, prune, sequence, and agent — plus a template gallery with ready-made workflows. The AI Agent Runner has five tools including web fetch, browser scrape, and smart search. You can also use the AI Chat Assistant (Cmd+K) to create contacts, start workflows, and query your data conversationally.",
+  },
+  {
+    question: "What analytics are available?",
+    answer: "The analytics dashboard has five tabs — Overview, Agents, Engagement, Content, and Sync Health — with area charts, bar charts, donut charts, ranked tables, and stat cards. You can filter by time range and track per-step workflow costs.",
   },
 ];
 ---

@@ -13,22 +13,37 @@ const features = [
   {
     icon: "users",
     title: "Unified Contacts",
-    description: "Cross-platform contact management with automatic deduplication and enrichment scoring.",
+    description: "Cross-platform contact management with automatic deduplication, enrichment scoring, and linked task management.",
+  },
+  {
+    icon: "workflow",
+    title: "Workflow Engine",
+    description: "Six workflow types — sync, enrich, search, prune, sequence, and agent — with a template gallery, kanban views, and per-step cost tracking.",
   },
   {
     icon: "bot",
-    title: "AI Agents",
-    description: "Claude AI agents automate engagement, enrichment, and outreach workflows.",
+    title: "AI Agent Runner",
+    description: "Five specialized tools — web fetch, browser scrape, smart search, contact enrichment, and progress tracking — with domain-based routing.",
   },
   {
-    icon: "share",
-    title: "Multi-Platform Publishing",
-    description: "Compose and publish across X, LinkedIn, and Gmail from one dashboard.",
+    icon: "chat",
+    title: "AI Chat Assistant",
+    description: "Conversational AI panel (Cmd+K) with 8 CRM tools. Query contacts, analytics, workflows, and content — or create tasks and start workflows by chatting.",
   },
   {
     icon: "chart",
-    title: "Smart Data",
-    description: "Engagement metrics, funnel tracking, and AI-powered contact enrichment.",
+    title: "Analytics Dashboard",
+    description: "Five-tab dashboard — overview, agents, engagement, content, and sync health — with time-range filtering and six chart types.",
+  },
+  {
+    icon: "content",
+    title: "Content Library",
+    description: "Create and manage posts, threads, articles, newsletters, DMs, and replies — publish across X, LinkedIn, and Gmail from one place.",
+  },
+  {
+    icon: "search",
+    title: "Smart Search",
+    description: "Dual-provider search with Brave and Tavily, intelligent query routing, and 3,000 free queries per month.",
   },
 ];
 ---
@@ -41,7 +56,7 @@ const features = [
         Everything you need to <span class="text-gradient-brand">grow your network</span>
       </h2>
       <p class="mt-4 text-muted-foreground text-lg">
-        A complete CRM toolkit powered by AI — from contact management to automated engagement.
+        A complete CRM toolkit powered by AI — from contact management to automated workflows, analytics, and a conversational assistant.
       </p>
     </div>
 
@@ -84,17 +99,37 @@ const features = [
                 <path d="M9 13v2"></path>
               </svg>
             )}
-            {feature.icon === "share" && (
+            {feature.icon === "workflow" && (
               <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path>
-                <polyline points="16 6 12 2 8 6"></polyline>
-                <line x1="12" x2="12" y1="2" y2="15"></line>
+                <circle cx="18" cy="18" r="3"></circle>
+                <circle cx="6" cy="6" r="3"></circle>
+                <path d="M6 21V9a9 9 0 0 0 9 9"></path>
+              </svg>
+            )}
+            {feature.icon === "chat" && (
+              <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22z"></path>
               </svg>
             )}
             {feature.icon === "chart" && (
               <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M3 3v16a2 2 0 0 0 2 2h16"></path>
                 <path d="m19 9-5 5-4-4-3 3"></path>
+              </svg>
+            )}
+            {feature.icon === "content" && (
+              <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" x2="8" y1="13" y2="13"></line>
+                <line x1="16" x2="8" y1="17" y2="17"></line>
+                <polyline points="10 9 9 9 8 9"></polyline>
+              </svg>
+            )}
+            {feature.icon === "search" && (
+              <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.3-4.3"></path>
               </svg>
             )}
           </div>

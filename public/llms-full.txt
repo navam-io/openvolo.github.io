@@ -1,31 +1,37 @@
 # OpenVolo
 
-> Agentic AI-Native Social CRM — manage contacts, content, and engagement across X/Twitter, LinkedIn, and Gmail, powered by Claude AI agents. All data stays on your machine.
+> Agentic AI-Native Social CRM — manage contacts, content, and workflows across X/Twitter, LinkedIn, and Gmail, with AI agents, a chat assistant, and a full analytics dashboard. All data stays on your machine.
 
 ## Key Features
 
 - **Zero Install**: One command (`npx openvolo`) sets up everything — database, migrations, and dashboard
 - **Local-First Privacy**: All data stored in SQLite at ~/.openvolo/ with AES-256 encrypted credentials
-- **Unified Contacts**: Cross-platform contact management with automatic deduplication and enrichment scoring
-- **AI Agents**: Claude AI agents automate engagement, enrichment, and outreach workflows
-- **Multi-Platform Publishing**: Compose and publish across X, LinkedIn, and Gmail from one dashboard
-- **Smart Data**: Engagement metrics, funnel tracking, and AI-powered contact enrichment
+- **Unified Contacts**: Cross-platform contact management with automatic deduplication, enrichment scoring, and linked task management
+- **Workflow Engine**: Six workflow types — sync, enrich, search, prune, sequence, and agent — with a template gallery, kanban views, and per-step cost tracking
+- **AI Agent Runner**: Five specialized tools — web fetch, browser scrape, smart search, contact enrichment, and progress tracking — with domain-based routing
+- **AI Chat Assistant**: Conversational AI panel (Cmd+K) with 8 CRM tools. Query contacts, analytics, workflows, and content — or create tasks and start workflows by chatting
+- **Analytics Dashboard**: Five-tab dashboard — overview, agents, engagement, content, and sync health — with time-range filtering and six chart types
+- **Content Library**: Create and manage posts, threads, articles, newsletters, DMs, and replies — publish across X, LinkedIn, and Gmail from one place
+- **Smart Search**: Dual-provider search with Brave and Tavily, intelligent query routing, and 3,000 free queries per month
 
 ## Supported Platforms
 
 ### X/Twitter
 - OAuth authentication and full data sync
-- Compose and publish posts directly
+- Tweet import, compose and publish posts directly
 - Engagement tracking and metrics
+- Content library integration
 
 ### LinkedIn
-- OAuth authentication and full data sync
-- Compose and publish posts directly
+- OAuth with OpenID Connect authentication
+- Profile sync and CSV connection import
+- Browser-based enrichment
 - Contact enrichment from profiles
 
 ### Gmail
-- OAuth authentication and full data sync
-- Email composition and messaging
+- Google People API contact sync
+- Email metadata enrichment
+- Message composition
 - Contact import and management
 
 ### Roadmap
@@ -33,16 +39,23 @@
 
 ## Tech Stack
 
-- Astro 5 + React (frontend)
+- Next.js 16 + React 19 (frontend)
 - SQLite + Drizzle ORM (local database)
 - Vercel AI SDK + Claude Agent SDK (AI features)
+- Playwright (browser scraping)
+- Recharts (analytics charts)
+- Brave Search + Tavily (smart search)
+- Tailwind CSS 4 (styling)
+- Vitest (testing)
+- Zod (validation)
+- TypeScript (language)
 - OAuth 2.0 (platform authentication)
 
 ## How It Works
 
 1. **Install**: Run `npx openvolo` — that's it. No config files, no Docker, no dependencies to manage. Downloads the package, creates your local database, runs schema migrations, and starts the dashboard at localhost:3000.
 2. **Connect**: Link your X, LinkedIn, and Gmail accounts with OAuth. Credentials are encrypted locally with AES-256. Scoped permissions — only what's needed.
-3. **Automate**: Let AI agents manage engagement, enrich contacts, and grow your network while you focus on what matters.
+3. **Automate**: Build workflows, run AI agents, query everything with the chat assistant, and track results on the analytics dashboard — while you focus on what matters.
 
 ## Security & Privacy
 
@@ -60,24 +73,34 @@ Yes. OpenVolo is open source under the Apache 2.0 license. You can use it, modif
 All data is stored locally in a SQLite database at ~/.openvolo/ on your machine. Nothing is sent to any cloud service. Your credentials are encrypted with AES-256.
 
 ### Do I need API keys?
-You need an Anthropic API key for AI features (or use Claude Code Max/Pro). Platform API keys for X, LinkedIn, and Gmail are optional — only needed for the platforms you want to connect.
+You need an Anthropic API key for AI features (or use Claude Code Max/Pro). Platform API keys for X, LinkedIn, and Gmail are optional — only needed for the platforms you want to connect. For Smart Search, Brave and Tavily API keys are optional — combined 3,000 free search queries per month.
 
 ### What platforms are supported?
 X/Twitter, LinkedIn, and Gmail are fully supported with OAuth authentication and data sync. Substack integration is on the roadmap.
 
 ### Can I use it with Claude Code?
-Yes. OpenVolo works with Claude Code Max, Claude Code Pro, or a standard Anthropic API key. It uses both the Vercel AI SDK for chat and the Claude Agent SDK for background automation.
+Yes. OpenVolo works with Claude Code Max, Claude Code Pro, or a standard Anthropic API key. It uses the Vercel AI SDK for the chat assistant (Cmd+K) and the Claude Agent SDK for background workflow automation.
 
 ### Is it really one command?
 Yes. Running `npx openvolo` downloads the package, creates your local database, runs schema migrations, and starts the dashboard at localhost:3000. No Docker, no config files, no separate database server.
+
+### What can AI agents automate?
+OpenVolo includes six workflow types — sync, enrich, search, prune, sequence, and agent — plus a template gallery with ready-made workflows. The AI Agent Runner has five tools including web fetch, browser scrape, and smart search. You can also use the AI Chat Assistant (Cmd+K) to create contacts, start workflows, and query your data conversationally.
+
+### What analytics are available?
+The analytics dashboard has five tabs — Overview, Agents, Engagement, Content, and Sync Health — with area charts, bar charts, donut charts, ranked tables, and stat cards. You can filter by time range and track per-step workflow costs.
 
 ## Architecture
 
 OpenVolo follows a local-first architecture where all data resides on the user's machine:
 
-- **Frontend**: Astro 5 with React components, served from localhost:3000
+- **Frontend**: Next.js 16 with React 19 components, served from localhost:3000
 - **Database**: SQLite via Drizzle ORM at ~/.openvolo/data.db
-- **AI Layer**: Vercel AI SDK for interactive chat, Claude Agent SDK for background automation
+- **AI Layer**: Vercel AI SDK for the interactive chat assistant (Cmd+K), Claude Agent SDK for background workflow automation
+- **Workflow Engine**: Six workflow types with template gallery, kanban views, and per-step cost tracking
+- **Agent Runner**: Five specialized tools — web fetch, browser scrape, smart search, contact enrichment, and progress tracking
+- **Analytics**: Recharts-powered dashboard with five tabs, six chart types, and time-range filtering
+- **Smart Search**: Dual-provider search with Brave and Tavily, intelligent query routing
 - **Auth**: OAuth 2.0 tokens encrypted with AES-256, stored in local config
 - **Sync**: Background workers sync data from connected platforms
 

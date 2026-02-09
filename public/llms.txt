@@ -1,34 +1,40 @@
 # OpenVolo
 
-> Agentic AI-Native Social CRM — manage contacts, content, and engagement across X/Twitter, LinkedIn, and Gmail, powered by Claude AI agents. All data stays on your machine.
+> Agentic AI-Native Social CRM — manage contacts, content, and workflows across X/Twitter, LinkedIn, and Gmail, with AI agents, a chat assistant, and a full analytics dashboard. All data stays on your machine.
 
 ## Key Features
 
 - **Zero Install**: One command (`npx openvolo`) sets up everything — database, migrations, and dashboard
 - **Local-First Privacy**: All data stored in SQLite at ~/.openvolo/ with AES-256 encrypted credentials
-- **Unified Contacts**: Cross-platform contact management with automatic deduplication and enrichment scoring
-- **AI Agents**: Claude AI agents automate engagement, enrichment, and outreach workflows
-- **Multi-Platform Publishing**: Compose and publish across X, LinkedIn, and Gmail from one dashboard
-- **Smart Data**: Engagement metrics, funnel tracking, and AI-powered contact enrichment
+- **Unified Contacts**: Cross-platform contact management with automatic deduplication, enrichment scoring, and linked task management
+- **Workflow Engine**: Six workflow types — sync, enrich, search, prune, sequence, and agent — with a template gallery, kanban views, and per-step cost tracking
+- **AI Agent Runner**: Five specialized tools — web fetch, browser scrape, smart search, contact enrichment, and progress tracking — with domain-based routing
+- **AI Chat Assistant**: Conversational AI panel (Cmd+K) with 8 CRM tools for querying contacts, analytics, workflows, and content
+- **Analytics Dashboard**: Five-tab dashboard — overview, agents, engagement, content, and sync health — with time-range filtering and six chart types
+- **Content Library**: Create and manage posts, threads, articles, newsletters, DMs, and replies — publish across X, LinkedIn, and Gmail from one place
+- **Smart Search**: Dual-provider search with Brave and Tavily, intelligent query routing, and 3,000 free queries per month
 
 ## Supported Platforms
 
-- X/Twitter (OAuth, data sync, publishing)
-- LinkedIn (OAuth, data sync, publishing)
-- Gmail (OAuth, data sync, messaging)
+- X/Twitter (OAuth, data sync, publishing, engagement tracking, content library)
+- LinkedIn (OAuth, OpenID Connect, profile sync, CSV import, browser enrichment)
+- Gmail (Google People API contact sync, email metadata enrichment, message composition)
 
 ## Tech Stack
 
-- Astro 5 + React (frontend)
+- Next.js 16 + React 19 (frontend)
 - SQLite + Drizzle ORM (local database)
 - Vercel AI SDK + Claude Agent SDK (AI features)
+- Playwright (browser scraping)
+- Recharts (analytics charts)
+- Brave Search + Tavily (smart search)
 - OAuth 2.0 (platform authentication)
 
 ## How It Works
 
 1. **Install**: Run `npx openvolo` — no config files, no Docker, no dependencies
 2. **Connect**: Link X, LinkedIn, and Gmail accounts with OAuth (credentials encrypted locally)
-3. **Automate**: AI agents manage engagement, enrich contacts, and grow your network
+3. **Automate**: Build workflows, run AI agents, query everything with the chat assistant, and track results on the analytics dashboard
 
 ## Links
 
