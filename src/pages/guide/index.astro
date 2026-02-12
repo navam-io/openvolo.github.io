@@ -1,0 +1,31 @@
+---
+import { getCollection, render } from "astro:content";
+import GuideLayout from "../../layouts/GuideLayout.astro";
+
+const allGuides = await getCollection("guide");
+const sorted = allGuides.sort((a, b) => a.data.order - b.data.order);
+
+const indexEntry = sorted.find((e) => e.id === "index");
+if (!indexEntry) throw new Error("Guide index.md not found");
+
+const { Content } = await render(indexEntry);
+
+const chapters = sorted
+  .filter((e) => e.id !== "index")
+  .map((e) => ({
+    id: e.id,
+    title: e.data.title,
+    href: `/guide/${e.id}/`,
+  }));
+
+const firstChapter = chapters[0];
+---
+
+<GuideLayout
+  title={indexEntry.data.title}
+  description={indexEntry.data.description}
+  chapters={chapters}
+  next={firstChapter ? { title: firstChapter.title, href: firstChapter.href } : undefined}
+>
+  <Content />
+</GuideLayout>

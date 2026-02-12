@@ -1,5 +1,8 @@
 ---
 const currentYear = new Date().getFullYear();
+const isHome = Astro.url.pathname === "/" || Astro.url.pathname === "";
+const hashHref = (hash: string) => isHome ? hash : `/${hash}`;
+const logoHref = isHome ? "#" : "/";
 ---
 
 <footer class="border-t border-border/50 bg-muted/30">
@@ -7,7 +10,7 @@ const currentYear = new Date().getFullYear();
     <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
       <!-- Brand -->
       <div class="space-y-4">
-        <a href="#" class="flex items-center gap-2.5">
+        <a href={logoHref} class="flex items-center gap-2.5">
           <img
             src="/assets/openvolo-logo-transparent.png"
             alt=""
@@ -29,23 +32,28 @@ const currentYear = new Date().getFullYear();
         <h3 class="font-display font-semibold text-sm text-foreground">Product</h3>
         <ul class="space-y-2.5">
           <li>
-            <a href="#features" class="text-sm text-muted-foreground hover:text-foreground transition-colors">
+            <a href={hashHref("#features")} class="text-sm text-muted-foreground hover:text-foreground transition-colors">
               Features
             </a>
           </li>
           <li>
-            <a href="#platforms" class="text-sm text-muted-foreground hover:text-foreground transition-colors">
+            <a href={hashHref("#platforms")} class="text-sm text-muted-foreground hover:text-foreground transition-colors">
               Platforms
             </a>
           </li>
           <li>
-            <a href="#how-it-works" class="text-sm text-muted-foreground hover:text-foreground transition-colors">
+            <a href={hashHref("#how-it-works")} class="text-sm text-muted-foreground hover:text-foreground transition-colors">
               How It Works
             </a>
           </li>
           <li>
-            <a href="#faq" class="text-sm text-muted-foreground hover:text-foreground transition-colors">
+            <a href={hashHref("#faq")} class="text-sm text-muted-foreground hover:text-foreground transition-colors">
               FAQ
+            </a>
+          </li>
+          <li>
+            <a href="/guide/" class="text-sm text-muted-foreground hover:text-foreground transition-colors">
+              User Guide
             </a>
           </li>
         </ul>

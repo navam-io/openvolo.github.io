@@ -1,0 +1,45 @@
+---
+import { getCollection, render } from "astro:content";
+import GuideLayout from "../../layouts/GuideLayout.astro";
+
+export async function getStaticPaths() {
+  const allGuides = await getCollection("guide");
+  const sorted = allGuides
+    .filter((e) => e.id !== "index")
+    .sort((a, b) => a.data.order - b.data.order);
+
+  const chapters = sorted.map((e) => ({
+    id: e.id,
+    title: e.data.title,
+    href: `/guide/${e.id}/`,
+  }));
+
+  return sorted.map((entry, i) => ({
+    params: { slug: entry.id },
+    props: {
+      entry,
+      chapters,
+      prev: i > 0
+        ? { title: sorted[i - 1].data.title, href: `/guide/${sorted[i - 1].id}/` }
+        : { title: "Guide Index", href: "/guide/" },
+      next: i < sorted.length - 1
+        ? { title: sorted[i + 1].data.title, href: `/guide/${sorted[i + 1].id}/` }
+        : undefined,
+    },
+  }));
+}
+
+const { entry, chapters, prev, next } = Astro.props;
+const { Content } = await render(entry);
+---
+
+<GuideLayout
+  title={entry.data.title}
+  description={entry.data.description}
+  chapters={chapters}
+  currentSlug={entry.id}
+  prev={prev}
+  next={next}
+>
+  <Content />
+</GuideLayout>
